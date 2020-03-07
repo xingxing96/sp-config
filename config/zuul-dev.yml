@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: zuul
+  cloud:  #禁止配置中心的配置将客户端配置覆盖掉
+    config:
+      override-none: true 
+      
+          
+server:
+  port: 3001
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+
+
+#zuul路由配置可以省略, 会自己到eureka注册中心找到访问路径
+zuul:
+  routes:
+    item-service: /item-service/**
+    user-service: /user-service/**
+    order-service: /order-service/**
+    
+  #zuul默认不启用重试, 需要添加retry依赖 和 如下配置  
+  retryable: true    
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream  
