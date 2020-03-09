@@ -17,10 +17,10 @@ eureka:
 
 #zuul路由配置可以省略, 会自己到eureka注册中心找到访问路径
 zuul:
-  routes:
-    item-service: /item-service/**
-    user-service: /user-service/**
-    order-service: /order-service/**
+  #routes:
+    #item-service: /item-service/**
+    #user-service: /user-service/**
+    #order-service: /order-service/**
     
   #zuul默认不启用重试, 需要添加retry依赖 和 如下配置  
   retryable: true    
