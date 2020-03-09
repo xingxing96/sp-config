@@ -8,7 +8,12 @@ spring:
     name: user-service
   cloud:  #禁止配置中心的配置将客户端配置覆盖掉
     config:
-      override-none: true     
+      override-none: true   
+  rabbitmq:
+    host: 192.168.64.140
+    port: 5672
+    username: admin
+    password: admin        
       
       
 server:
